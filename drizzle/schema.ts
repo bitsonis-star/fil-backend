@@ -307,3 +307,22 @@ export const cityVenues = mysqlTable("cityVenues", {
 });
 
 export type CityVenue = typeof cityVenues.$inferSelect;
+export const roommateProfiles = mysqlTable("roommateProfiles", {
+  id:            int("id").autoincrement().primaryKey(),
+  userId:        int("user_id").notNull().unique(),
+  hasRoom:       tinyint("has_room").notNull().default(0),
+  sleepSchedule: mysqlEnum("sleep_schedule", ["early","normal","late","very_late"]).notNull().default("normal"),
+  cleanliness:   mysqlEnum("cleanliness", ["spotless","clean","relaxed","lived_in"]).notNull().default("clean"),
+  noiseLevel:    mysqlEnum("noise_level", ["silent","background","music","loud"]).notNull().default("background"),
+  guestsPolicy:  mysqlEnum("guests_policy", ["rarely","occasional","regular","partner_stays"]).notNull().default("occasional"),
+  budgetMin:     int("budget_min").notNull().default(300),
+  budgetMax:     int("budget_max").notNull().default(600),
+  neighbourhoods: text("neighbourhoods"),
+  petsOk:        tinyint("pets_ok").notNull().default(1),
+  smokingOk:     tinyint("smoking_ok").notNull().default(0),
+  bio:           text("bio"),
+  createdAt:     timestamp("created_at").defaultNow().notNull(),
+  updatedAt:     timestamp("updated_at").defaultNow().notNull(),
+});
+
+export type RoommateProfile = typeof roommateProfiles.$inferSelect;
