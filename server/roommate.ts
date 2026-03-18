@@ -4,9 +4,9 @@
  */
 
 import { z } from 'zod';
-import { router, protectedProcedure } from './trpc';
+import { router, protectedProcedure } from './_core/trpc';
 import { db } from './db';
-import { roommateProfiles, users } from './db/schema';
+import { roommateProfiles, users } from '../drizzle/schema';
 import { eq, and, ne, between, sql } from 'drizzle-orm';
 
 // ─── Athens neighbourhoods ────────────────────────────────────────────────────
