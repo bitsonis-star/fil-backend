@@ -6,3 +6,4 @@ COPY . .
 RUN npx vite build
 EXPOSE 3000
 CMD ["npx", "tsx", "server/_core/index.ts"]
+# Thu Mar 19 00:58:30 EET 2026
