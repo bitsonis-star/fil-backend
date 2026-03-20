@@ -3,7 +3,7 @@ builder = "NIXPACKS"
 buildCommand = "npm install && npm run build"
 
 [deploy]
-startCommand = "npx tsx server/_core/index.ts && npx drizzle-kit push"
+startCommand = "npx drizzle-kit push && npx tsx server/_core/index.ts"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 3
 
